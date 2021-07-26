@@ -1,0 +1,43 @@
+<!-- <h2>Card</h2>
+<div *ngFor="let photo of photoList">
+<div class="card">
+  <img src="{{photo.thumbnailUrl}}" alt="Avatar" style="width:100%">
+  <div class="container">
+    <h4><b>{{photo.title}}</b></h4> 
+    <p>Architect & Engineer</p> 
+  </div>
+</div>
+</div> -->
+
+<div class="row" *ngFor="let photo of photoList">
+  <div class="column">
+    <div class="card">
+      <img src="{{photo.thumbnailUrl}}" alt="Avatar" style="width:50%">
+      <p>{{photo.title}}</p>
+      <p>{{photo.id}}</p>
+      <p>{{photo.url}}</p>
+      <!-- <button (click)="addInTable(photo)">toggleButton</button> -->
+      <button id="btn-{{photo.id}}" (click)="addInTable(photo)">{{ text }}</button>
+    </div>
+  </div>
+</div>
+
+
+  <h2>HTML Table</h2>
+
+  <table>
+    <tr>
+      <th>Photo</th>
+      <th>ID</th>
+      <th>URL</th>
+      <th>Title</th>
+    </tr>
+    <tr  *ngFor="let data of photoListTable">
+      <td><img src="{{data.thumbnailUrl}}" alt="Avatar" style="width:20%"></td>
+      <td>{{data.id}}</td>
+      <td>{{data.url}}</td>
+      <td>{{data.title}}</td>
+    </tr>
+   
+  
+  </table> 
