@@ -24,7 +24,19 @@ export class AppComponent {
    }
 
    addInTable(value){
-    document.getElementById("btn-"+value.id).innerHTML = document.getElementById("btn-"+value.id).innerHTML == "Remove" ? "Compare" : "Remove";
+   //  document.getElementById("btn-"+value.id).innerHTML = document.getElementById("btn-"+value.id).innerHTML == "Remove" ? "Compare" : "Remove";
+    console.log(document.getElementById("btn-"+value.id).innerHTML)
+    if((document.getElementById("btn-"+value.id).innerHTML) == 'Compare'){
+      document.getElementById("btn-"+value.id).innerHTML = document.getElementById("btn-"+value.id).innerHTML == "Remove" ? "Compare" : "Remove";
        this.photoListTable.push(value)
+      } else{
+      console.log("this is remove")
+      document.getElementById("btn-"+value.id).innerHTML = document.getElementById("btn-"+value.id).innerHTML == "Remove" ? "Compare" : "Remove";
+      var index = this.photoListTable.findIndex(function(o){
+         return o.id === value.id;
+    })
+    if (index !== -1) this.photoListTable.splice(index, 1);
+   }
+
    }
 }
